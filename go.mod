@@ -2,7 +2,10 @@ module github.com/dthung1602/terraform-provider-instant-proxy
 
 go 1.18
 
-require github.com/hashicorp/terraform-plugin-sdk/v2 v2.17.0
+require (
+	github.com/dthung1602/instant-proxy-api-client v0.0.0-20220605104416-5fe1b57c2e8c
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.17.0
+)
 
 require (
 	github.com/agext/levenshtein v1.2.2 // indirect
