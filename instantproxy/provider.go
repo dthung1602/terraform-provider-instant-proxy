@@ -13,7 +13,9 @@ func Provider() *schema.Provider {
 	return &schema.Provider{
 		Schema:               providerSchema(),
 		ConfigureContextFunc: configureContext,
-		ResourcesMap:         map[string]*schema.Resource{},
+		ResourcesMap: map[string]*schema.Resource{
+			"instantproxy_authorized_ips": resourceAuthorizedIPs(),
+		},
 		DataSourcesMap: map[string]*schema.Resource{
 			"instantproxy_proxies":        dataSourceProxies(),
 			"instantproxy_authorized_ips": dataSourceAuthorizedIPs(),

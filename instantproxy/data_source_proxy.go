@@ -20,7 +20,7 @@ func dataSourceProxies() *schema.Resource {
 				Computed: true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
-						"value": &schema.Schema{
+						"address": &schema.Schema{
 							Type:     schema.TypeString,
 							Computed: true,
 						},
@@ -49,9 +49,9 @@ func datasourceProxiesRead(ctx context.Context, data *schema.ResourceData, meta 
 	result := make([]*map[string]interface{}, len(proxies), len(proxies))
 	for i, proxy := range proxies {
 		result[i] = &map[string]interface{}{
-			"value": proxy.String(),
-			"ip":    proxy.IP.String(),
-			"port":  proxy.Port,
+			"address": proxy.String(),
+			"ip":      proxy.IP.String(),
+			"port":    proxy.Port,
 		}
 	}
 

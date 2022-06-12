@@ -14,18 +14,17 @@ import (
 func dataSourceAuthorizedIPs() *schema.Resource {
 	return &schema.Resource{
 		ReadContext: datasourceAuthorizedIPsRead,
-		Schema: map[string]*schema.Schema{
-			"ips": &schema.Schema{
-				Type:     schema.TypeList,
-				Computed: true,
-				Elem: &schema.Resource{
-					Schema: map[string]*schema.Schema{
-						"value": &schema.Schema{
-							Type:     schema.TypeString,
-							Computed: true,
-						},
-					},
-				},
+		Schema:      dataSourceAuthorizedIPSchema(),
+	}
+}
+
+func dataSourceAuthorizedIPSchema() map[string]*schema.Schema {
+	return map[string]*schema.Schema{
+		"value": &schema.Schema{
+			Type:     schema.TypeList,
+			Computed: true,
+			Elem: &schema.Schema{
+				Type: schema.TypeString,
 			},
 		},
 	}
@@ -38,14 +37,12 @@ func datasourceAuthorizedIPsRead(ctx context.Context, data *schema.ResourceData,
 		return diag.FromErr(err)
 	}
 
-	result := make([]*map[string]interface{}, len(ips), len(ips))
+	result := make([]string, len(ips), len(ips))
 	for i, ip := range ips {
-		result[i] = &map[string]interface{}{
-			"value": ip.String(),
-		}
+		result[i] = ip.String()
 	}
 
-	if err := data.Set("ips", result); err != nil {
+	if err := data.Set("value", result); err != nil {
 		return diag.FromErr(err)
 	}
 
