@@ -17,7 +17,7 @@
 <h3 align="center">InstantProxy Terraform Provider</h3>
 
 <p align="center">
-   An <b>unofficial</b>  Terraform provider for Instant Proxy API
+   An <b>unofficial</b> Terraform provider for Instant Proxy API
 </p>
 
 
@@ -41,8 +41,10 @@ terraform {
 
 provider "instantproxy" {
   /**
-  For testing you can use the fake instant proxy server available at https://github.com/dthung1602/instant-proxy-api-client
-  Not providing endpoint or setting it to empty string will cause the provider make real requests to InstantProxy server
+  For testing you can use the fake instant proxy server available at 
+  https://github.com/dthung1602/instant-proxy-api-client
+  Not providing endpoint or setting it to empty string will cause 
+  the provider make real requests to InstantProxy server
   */
   endpoint = "http://localhost:3000"
   username = "username"
