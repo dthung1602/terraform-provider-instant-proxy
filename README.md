@@ -23,8 +23,9 @@
 
 ## Installation
 
-Hashicorp provider repo: N/A for now
-Just download the source code
+Hashicorp provider repo: https://registry.terraform.io/providers/dthung1602/instant-proxy/latest
+
+Installation: see usage below
 
 ## Usage
 
@@ -33,8 +34,8 @@ Just download the source code
 terraform {
   required_providers {
     instantproxy = {
-      version = "0.1"
-      source  = "local/dthung1602/instantproxy"
+      version = "0.1.2"
+      source  = "dthung1602/instant-proxy"
     }
   }
 }
